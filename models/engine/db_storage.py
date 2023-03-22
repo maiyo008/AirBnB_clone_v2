@@ -8,7 +8,7 @@ from models.city import City
 #from models.place import Place
 #from models.review import Review
 from models.state import State
-#from models.user import User
+from models.user import User
 from sqlalchemy import create_engine
 from sqlalchemy.orm import relationship
 from sqlalchemy.orm import scoped_session
@@ -48,7 +48,7 @@ class DBStorage:
 
             objs = self.__session.query(State).all()
             objs.extend(self.__session.query(City).all())
-            #objs.extend(self.__session.query(User).all())
+            objs.extend(self.__session.query(User).all())
             #objs.extend(self.__session.query(Place).all())
             #objs.extend(self.__session.query(Review).all())
             #objs.extend(self.__session.query(Amenity).all())
