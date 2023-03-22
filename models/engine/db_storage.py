@@ -5,7 +5,7 @@ from models.base_model import Base
 #from models.base_model import BaseModel
 #from models.amenity import Amenity
 from models.city import City
-#from models.place import Place
+from models.place import Place
 #from models.review import Review
 from models.state import State
 from models.user import User
@@ -49,7 +49,7 @@ class DBStorage:
             objs = self.__session.query(State).all()
             objs.extend(self.__session.query(City).all())
             objs.extend(self.__session.query(User).all())
-            #objs.extend(self.__session.query(Place).all())
+            objs.extend(self.__session.query(Place).all())
             #objs.extend(self.__session.query(Review).all())
             #objs.extend(self.__session.query(Amenity).all())
         else:
