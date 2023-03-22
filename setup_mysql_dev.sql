@@ -1,4 +1,4 @@
---This script prepares MYSQL serve
+-- create hnbn_dev_db
 CREATE DATABASE IF NOT EXISTS hbnb_dev_db;
 CREATE USER IF NOT EXISTS 'hbnb_dev'@'localhost' IDENTIFIED BY 'hbnb_dev_pwd';
 GRANT USAGE ON *.* TO 'hbnb_dev'@'localhost';
