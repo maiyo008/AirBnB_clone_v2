@@ -84,7 +84,6 @@ echo "changing ownership of $folder_name1"
 sudo chown -R ubuntu:ubuntu /data/
 
 #Updating default nginx configuration file
-hostname=''
 sudo sh -c "cat > /etc/nginx/sites-available/default"<<EOF
 server {
     listen 80;
@@ -102,7 +101,7 @@ server {
             alias /data/web_static/current/;
             index index.html;
         }
-        add_header X-Served-By '$hostname';
+        add_header X-Served-By \$hostname;
 
  }
 EOF
