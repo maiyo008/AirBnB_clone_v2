@@ -153,4 +153,37 @@ Environment variables will be your best friend for this project!
 * `HBNB_MYSQL_DB: the database name of your MySQL
 * `HBNB_TYPE_STORAGE: the type of storage used. It can be “file” (using FileStorage) or db (using DBStorage)
 
-## About
+# HBNB - Deploy Web Static
+
+## Background Context
+In this first deployment project, you will be deploying your web_static work. You will use Fabric (for Python3). Fabric is a Python library and command-line tool for streamlining the use of SSH for application deployment or systems administration tasks. It provides a basic suite of operations for executing local or remote shell commands (normally or via sudo) and uploading/downloading files, as well as auxiliary functionality such as prompting the running user for input, or aborting execution. This concept is important: execute commands locally or remotely. Locally means in your laptop (physical laptop or inside your Vagrant), and Remotely means on your server(s). Fabric is taking care of all network connections (SSH, SCP etc.), it’s an easy tool for transferring, executing, etc. commands from locale to a remote server.
+![airbnb-deploy](https://s3.amazonaws.com/intranet-projects-files/holbertonschool-higher-level_programming+/288/aribnb_diagram_0.jpg?cache=off)
+
+## Resources
+**Read or watch:**
+
+* [How to use Fabric](https://www.digitalocean.com/community/tutorials/how-to-use-fabric-to-automate-administration-tasks-and-deployments)
+* [How to use Fabric in Python](https://www.pythonforbeginners.com/systems-programming/how-to-use-fabric-in-python)
+* [Fabric and command line options](https://docs.fabfile.org/en/1.13/usage/fab.html)
+* [CI/CD concept page](https://intranet.alxswe.com/concepts/43)
+* [Nginx configuration for beginners](https://nginx.org/en/docs/beginners_guide.html)
+* [Difference between root and alias on NGINX](https://blog.heitorsilva.com/en/nginx/diferenca-entre-root-e-alias-do-nginx/)
+* [Fabric for Python 3](https://github.com/mathiasertl/fabric)
+* [Fabric Documentation](https://www.fabfile.org/)
+
+## Install Fabric for Python 3 - version 1.14.post1
+```
+$ pip3 uninstall Fabric
+$ sudo apt-get install libffi-dev
+$ sudo apt-get install libssl-dev
+$ sudo apt-get install build-essential
+$ sudo apt-get install python3.4-dev
+$ sudo apt-get install libpython3-dev
+$ pip3 install pyparsing
+$ pip3 install appdirs
+$ pip3 install setuptools==40.1.0
+$ pip3 install cryptography==2.8
+$ pip3 install bcrypt==3.1.7
+$ pip3 install PyNaCl==1.3.0
+$ pip3 install Fabric3==1.14.post1
+```
