@@ -5,11 +5,27 @@ using the function do_deploy
 """
 import os.path
 from fabric.api import *
+from datetime import datetime
 
 
-#env.hosts = ['54.87.158.226', '34.229.186.174']
-#env.user = 'ubuntu'
-#env.key_filename = '~/.ssh/school'
+env.hosts = ['54.87.158.226', '34.229.186.174']
+env.user = 'ubuntu'
+env.key_filename = '~/.ssh/school'
+
+
+def do_pack():
+    """Compress web_static folder to a .tgz archive"""
+    local("mkdir -p versions")
+    now = datetime.utcnow()
+    tar_file = "versions/web_static_{}{}{}{}{}{}.tgz".format(
+        now.year, now.month, now.day, now.hour, now.minute, now.day
+    )
+    result = local("tar -czvf {} web_static". format(tar_file))
+
+    if result.succeeded:
+        return tar_file
+    else:
+        return None
 
 
 def do_deploy(archive_path):
