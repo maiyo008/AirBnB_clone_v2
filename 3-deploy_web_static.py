@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 """
-Script that distributes an archive to your web servers,
-using the function do_deploy
+Script that deploys web_static
 """
 import os.path
 from fabric.api import *
@@ -9,8 +8,8 @@ from datetime import datetime
 
 
 env.hosts = ['54.87.158.226', '34.229.186.174']
-#env.user = 'ubuntu'
-#env.key_filename = '~/.ssh/school'
+env.user = 'ubuntu'
+# env.key_filename = '~/.ssh/school'
 
 
 def do_pack():
@@ -41,7 +40,7 @@ def do_deploy(archive_path):
         # uncompress archived files
         filename = os.path.basename(archive_path)
         directory = "/data/web_static/releases/" \
-        + os.path.splitext(filename)[0] + "/"
+            + os.path.splitext(filename)[0] + "/"
         # print("Directory: {}".format(directory))
         run("mkdir -p {}".format(directory))
         run("tar -xzf /tmp/{} -C {} --strip-components=1"
@@ -58,5 +57,12 @@ def do_deploy(archive_path):
             .format(directory))
         return True
     except:
-        # print(e)
         return False
+
+
+def deploy():
+    """creates and distributes an archive to your web servers"""
+    path = do_pack()
+    if not path:
+        return False
+    return do_deploy(path)
