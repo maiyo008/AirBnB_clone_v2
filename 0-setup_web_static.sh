@@ -92,6 +92,7 @@ echo "changing ownership of $folder_name1"
 sudo chown -R ubuntu:ubuntu /data/
 
 #Updating default nginx configuration file
+hostname=''
 sudo sh -c "cat > /etc/nginx/sites-available/default"<<EOF
 server {
     listen 80;
