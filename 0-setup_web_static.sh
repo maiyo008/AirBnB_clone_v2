@@ -84,30 +84,7 @@ echo "changing ownership of $folder_name1"
 sudo chown -R ubuntu:ubuntu /data/
 
 #Updating default nginx configuration file
-sudo sh -c "cat > /etc/nginx/sites-available/default"<<EOF
-server {
-    listen 80;
-    root /var/www/html;
-    index index.html;
-    
-
-        rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;
-        error_page 404 /404.html;
-        location = /404.html {
-                root /var/www/html;
-                internal;
-        }
-        location /hbnb_static {
-            alias /data/web_static/current/;
-            index index.html;
-        }
-        add_header X-Served-By \$hostname;
-
- }
-EOF
-
-#Test Nginx configuration file
-sudo nginx -t
+sudo sed -i '$a\\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}\n' /etc/nginx/sites-available/default
 
 #Restart nginx
 sudo service nginx restart
