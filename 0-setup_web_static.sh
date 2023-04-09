@@ -84,7 +84,7 @@ echo "changing ownership of $folder_name1"
 sudo chown -R ubuntu:ubuntu /data/
 
 #Updating default nginx configuration file
-sudo sed -i '$a\\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}\n' /etc/nginx/sites-available/default
+sudo sed -i "26i \\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}\n" /etc/nginx/sites-available/default
 
 #Restart nginx
 sudo service nginx restart
