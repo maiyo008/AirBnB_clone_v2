@@ -97,7 +97,7 @@ server {
                 root /var/www/html;
                 internal;
         }
-        location /hbnb_static/ {
+        location /hbnb_static {
             alias /data/web_static/current/;
             index index.html;
         }
