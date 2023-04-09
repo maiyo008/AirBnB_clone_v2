@@ -18,7 +18,7 @@ def do_pack():
     local("mkdir -p versions")
     now = datetime.utcnow()
     tar_file = "versions/web_static_{}{}{}{}{}{}.tgz".format(
-        now.year, now.month, now.day, now.hour, now.minute, now.day
+        now.year, now.month, now.day, now.hour, now.minute, now.second
     )
     result = local("tar -czvf {} web_static". format(tar_file))
 
@@ -56,6 +56,7 @@ def do_deploy(archive_path):
         # Recreate symbolic link
         run("ln -s {} /data/web_static/current"
             .format(directory))
+        print("New version deployed")
         return True
     except:
         # print(e)
