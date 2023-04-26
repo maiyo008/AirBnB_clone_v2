@@ -3,9 +3,6 @@
 Starts a Flask web application that handles States and Cities objects.
 """
 from flask import Flask, render_template
-from models import storage
-from models.state import State
-
 app = Flask(__name__)
 
 
@@ -37,4 +34,6 @@ def states_id(id=None):
 
 
 if __name__ == '__main__':
+    from models import storage
+    from models.state import State
     app.run(host='0.0.0.0', port='5000')

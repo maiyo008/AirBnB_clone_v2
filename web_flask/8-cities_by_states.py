@@ -3,10 +3,6 @@
 Starts a Flask web application.
 """
 from flask import Flask, render_template
-from models import storage
-from models.state import State
-from models.city import City
-
 app = Flask(__name__)
 
 
@@ -29,4 +25,7 @@ def display_cities_by_states():
 
 
 if __name__ == '__main__':
+    from models import storage
+    from models.state import State
+    from models.city import City
     app.run(host='0.0.0.0', port=5000)
